@@ -11,6 +11,11 @@ Require forecast.io
 var Forecast = require('forecast.io');
 ```
 
+Optionally require util for logging the response and data.
+```
+var util = require('util');
+```
+
 Instantiate an instance of Forecast. You'll need to provide options specifying your forecast.io API Key.
 
 ```
@@ -27,8 +32,8 @@ Make a call to the API using the get or getAtTime methods.
 ```
 forecast.get(latitude, longitude, function (err, res, data) {
   if (err) throw err;
-  log('res: ' + util.inspect(res));
-  log('data: ' + util.inspect(data));
+  util.log('res: ' + util.inspect(res));
+  util.log('data: ' + util.inspect(data));
 });
 ```
 
@@ -38,8 +43,8 @@ forecast.get(latitude, longitude, function (err, res, data) {
 var time = new Date().setDate(0); // lets use an arbitrary date
 forecast.getAtTime(latitude, longitude, time, function (err, res, data) {
   if (err) throw err;
-  log('res: ' + util.inspect(res));
-  log('data: ' + util.inspect(data));
+  util.log('res: ' + util.inspect(res));
+  util.log('data: ' + util.inspect(data));
 });
 ```
 
@@ -53,7 +58,7 @@ var options = {
 };
 forecast.get(latitude, longitude, options, function (err, res, data) {
   if (err) throw err;
-  log('res: ' + util.inspect(res));
-  log('data: ' + util.inspect(data));
+  util.log('res: ' + util.inspect(res));
+  util.log('data: ' + util.inspect(data));
 });
 ```
